@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blocmarks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+</head>
+<body>
+  <div class='welcome'>
+  <div class="container">
+    <div class='jumbotron'>
+      <h1>Blocmarks</h1>
+        <p>Welcome <%= @email %>!</p>
+        <p>Keep track of your bookmarks!</p> 
+        <p>You can confirm your account email through the link below:</p>
+        <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p> 
+    </div>
+  </div>
+</div>
+</body>
+  
+
+  
+
+

@@ -2,13 +2,73 @@
 <html>
 <head>
   <title>Blocmarks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 
+
+    <nav class="navbar navbar-inverse navbar-fixed-top"> 
+      <div class="container">
+        <div class="navbar-header">
+          <h2 class='pull-left'>Blocmarks</h2>
+          <ul class="nav navbar-nav">
+          <li><%=link_to "Home", root_path, class: 'adjust-link' %></li>
+        </div>
+
+        <div class="pull-right user-info">
+          <% if user_signed_in? %>
+            Signed is as: <strong><%= current_user.email %></strong> ||
+            <%= link_to 'User Profile',edit_user_registration_path,method: :get, :class => 'btn btn-success navbar-btn btn-sm'%> || <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'btn btn-success navbar-btn btn-sm' %>
+          <% else %>
+            <%= link_to "Sign Up", new_user_registration_path, :class => 'btn btn-success navbar-btn btn-circle' %>  ||  
+              <%= link_to "Sign In", new_user_session_path, :class => 'btn btn-success navbar-btn btn-circle' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+
+      
+
+
+
+<% if flash[:notice] %>
+      <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= flash[:notice] %>
+      </div>
+    <% elsif flash.now[:alert] %>
+      <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= flash.now[:alert] %>
+      </div>
+    <% elsif flash[:alert] %>
+      <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+   
+<div class="body-move"> 
 <%= yield %>
+
+</div>
+
+<div class ='navbar navbar-inverse navbar-fixed-bottom'>
+  <div class ='container'>
+    <p class='pull-right bottom'>Created by: Phil Fluegel</p>
+
+  </div>
+</div>
+
 
 </body>
 </html>
