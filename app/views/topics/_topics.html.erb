@@ -1,0 +1,13 @@
+<div class = 'container'>
+  <div class = 'row'>
+    <% topic.each do |topic|%>
+      <%=link_to topic_path(topic) do %>
+        <div class = 'col-md-4 box'>
+          <%= "#{topic.title}" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+    
+  
