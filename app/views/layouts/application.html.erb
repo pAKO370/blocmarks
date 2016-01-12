@@ -23,8 +23,7 @@
 
         <div class="pull-right user-info">
           <% if user_signed_in? %>
-            Signed is as: <strong><%= current_user.email %></strong> ||
-            <%= link_to 'User Profile',edit_user_registration_path,method: :get, :class => 'btn btn-success navbar-btn btn-sm'%> || <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'btn btn-success navbar-btn btn-sm' %>
+                        <%= link_to 'User Profile',edit_user_registration_path,method: :get, :class => 'btn btn-success navbar-btn btn-sm'%> || <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'btn btn-success navbar-btn btn-sm' %>
           <% else %>
             <%= link_to "Sign Up", new_user_registration_path, :class => 'btn btn-success navbar-btn btn-circle' %>  ||  
               <%= link_to "Sign In", new_user_session_path, :class => 'btn btn-success navbar-btn btn-circle' %>
@@ -65,6 +64,10 @@
 
 <div class ='navbar navbar-inverse navbar-fixed-bottom'>
   <div class ='container'>
+    <% if user_signed_in? %>
+      <p class= 'pull-left bottom'>Signed is as: <strong><%= current_user.email %></strong></p>
+      <% end %>
+
     <p class='pull-right bottom'>Created by: Phil Fluegel</p>
 
   </div>

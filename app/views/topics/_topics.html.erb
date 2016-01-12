@@ -1,10 +1,13 @@
+<% topic.each do |topic|%>
+  <div class="media">
+    <div class="media-body">
+      <h3>
+        <%=link_to topic.title, topic%>
+      </h3>
+    </div>
+  </div>
+<% end %>
 
-    <% topic.each do |topic|%>
-      <%=link_to topic_path(topic) do %>
-        <div class = 'col-md-4 box'>
-          <%= "#{topic.title}" %>
-        </div>
-      <% end %>
-    <% end %>
-  
+
+
   

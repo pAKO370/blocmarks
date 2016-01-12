@@ -1,4 +1,4 @@
-<% @topic.bookmarks.each do |bookmark|%>
+<% topic.bookmarks.each do |bookmark|%>
   <%=link_to topic_bookmark_path(topic_id: @topic, id: bookmark.id) do %>
     <div class = 'col-md-4 box'>
       <%= "#{bookmark.url}" %>

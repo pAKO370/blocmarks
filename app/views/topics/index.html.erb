@@ -1,12 +1,11 @@
 <div class = 'container'>
   <div class = 'row'>
     <h1>Topics</h1>
-      <p class="lead">Click on topic to view Blockmarks</p>
-      <h3><%= render partial: 'topics', locals: {topic: @topic} %></h3>
+    <p class="lead">Click on topic to view Blockmarks</p>
+      
+    <h3><%= render partial: 'topics', locals: {user: current_user,topic: @topics} %></h3>
       
   </div>
   <p class="lead">Create new topic</p>
-  <%= render partial: 'form', locals: {topic_book: Topic.new, attribute: :title} %>
-  
+      <%= render partial: 'form', locals: {topic: Topic.new} %>
 </div>
-    

@@ -1,19 +1,21 @@
-<%= form_for topic_book, html: {class: 'form-inline'} do |f|  %>
 
-<% if topic_book.errors.any? %>
+<%= form_for topic, html: {class: 'form-inline'} do |f|  %>
+
+<% if topic.errors.any? %>
 <div class="alert alert-danger">
-  <h4><%= pluralize(topic_book.errors.count, "error")%></h4>
+  <h4><%= pluralize(topic.errors.count, "error")%></h4>
   <ul>
-    <% topic_book.errors.full_messages.each do |msg| %>
+    <% topic.errors.full_messages.each do |msg| %>
     <li><%= msg %></li>
     <% end %>
   </ul>
   </div>
   <% end %>
-  <%= form_group_tag(topic_book.errors[attribute]) do %>
+  <br>
+  <%= form_group_tag(topic.errors[:title]) do %>
 
-  <%= f.label attribute%>
-  <%= f.text_field attribute, class: 'text-field', placeholder: 'Enter title' %>
+  <%= f.label :title%>
+  <%= f.text_field :title, class: 'text-field', placeholder: 'Enter title' %>
   <% end %>
 
 <div class="form-group">

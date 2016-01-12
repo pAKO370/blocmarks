@@ -1,4 +1,7 @@
-<h1>New Topic</h1>
-<p><em>Title must be 10 characters or less.</em></p>
-
-<%= render partial: 'form',locals: {topic: @topic} %>
+<div class='container'>
+  <h1>New Topic</h1>
+  <p><em>Title must be 10 characters or less.</em></p>
+    <div class="row">
+      <%= render partial: 'form',locals: {topic: @topic} %>
+    </div>
+</div>
