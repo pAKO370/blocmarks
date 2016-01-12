@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  
   def index
     @user = current_user
     @topic = @user.topics
@@ -16,7 +17,7 @@ class TopicsController < ApplicationController
     @topic.title = params[:topic][:title]
     @topic.user = current_user
 
-    if @topic.save && @topic.valid?
+    if @topic.save
       flash[:notice] = "Topic saved"
       redirect_to @topic
     else
