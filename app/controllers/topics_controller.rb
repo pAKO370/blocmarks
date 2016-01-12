@@ -19,7 +19,7 @@ class TopicsController < ApplicationController
 
     if @topic.save
       flash[:notice] = "Topic saved"
-      redirect_to @topic
+      redirect_to topics_path
     else
       flash[:alert] = " Topic save failed"
       render :new
