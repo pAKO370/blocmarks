@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  
+
   def index
     @user = current_user
     @topic = @user.topics
@@ -22,7 +22,7 @@ class TopicsController < ApplicationController
       redirect_to @topic
     else
       flash[:alert] = " Topic save failed"
-      redirect_to topics_path
+      render :new
     end
 
   end
