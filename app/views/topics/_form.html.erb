@@ -15,7 +15,7 @@
   <%= form_group_tag(topic.errors[:title]) do %>
 
   <%= f.label :title%>
-  <%= f.text_field :title, class: 'text-field', placeholder: 'Enter title' %>
+  <%= f.text_field :title, cols: 20,class: 'text-field', placeholder: 'Title for new Topic' %>
   <% end %>
 
 <div class="form-group">

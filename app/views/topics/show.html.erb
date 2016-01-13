@@ -1,22 +1,35 @@
 <div class = 'container'>
   <div class = 'row'>
-<h1><%="#{@topic.title}"%></h1>
-<%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger btn-xs pull-left' %>
-<%= link_to "Edit Topic", edit_topic_path(id: @topic.id), class: 'btn btn-primary btn-xs space' %>
-<p class="lead">Click on bookmark to view Blockmarks</p>
+    <h1><%="#{@topic.title}"%></h1>
 
+      <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger btn-sm pull-left' %>
+      <%= link_to "Edit Topic", edit_topic_path(id: @topic.id), class: 'btn btn-primary btn-sm space' %>
+       <br>
+    <p class="lead">Click on bookmark to view Blockmarks</p>
+    
+ 
 <% @topic.bookmarks.each do |bookmark|%>
-  <%=link_to topic_bookmark_path(topic_id: @topic, id: bookmark.id) do %>
+  <h4>
+    <%=link_to "#{bookmark.url}","http://#{bookmark.url}",:target => "_blank"%>
+    <div class="pull-left">
+    <%= link_to "Edit", edit_topic_bookmark_path(topic_id: @topic.id, id: bookmark.id),class: 'btn btn-primary btn-xs' %>
+  </div>
+  <div class="pull-left pull-left-btn">
+    <%= link_to "Delete",[@topic, @bookmark],method: :delete, class: 'btn btn-danger btn-xs' %>
+    </div>
+  </h4>
+<% end %>
+  </div>
+<br>
+    <%= link_to "New Bookmark", new_topic_bookmark_path(topic_id: @topic.id), class: 'btn btn-success btn-sm' %>
+</div>
+
+<!--saved for topic index page-->
+<% @topic.bookmarks.each do |bookmark|%>
+  <%=link_to "http://#{bookmark.url}", :target =>"_blank" do%>
     <div class = 'col-md-4 box'>
       <%= "#{bookmark.url}" %>
     </div>
   <% end %>
 <% end %>
-    
-
-</div>
-<br>
-<%= link_to "New Bookmark", new_topic_bookmark_path(topic_id: @topic.id), class: 'btn btn-success btn-xs' %>
-<%= link_to "Edit", edit_topic_path(id: @topic.id), class: 'btn btn-primary btn-xs' %>  
-</div>
   
