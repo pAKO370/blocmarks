@@ -6,8 +6,8 @@
       <%= render partial: 'form', locals: {topic: Topic.new} %>
 
       
-    <h3><%= render partial: 'topics', locals: {user: current_user,topic: @topics} %></h3>
+    <h3><%= render @topics %></h3>
       
   </div>
   </div>
-  
+

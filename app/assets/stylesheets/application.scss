@@ -17,6 +17,8 @@
  @import "bootstrap";
  @import url(https://fonts.googleapis.com/css?family=Montserrat);
  @import url(https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,800);
+ @import url(https://fonts.googleapis.com/css?family=Abel);
+ @import url(https://fonts.googleapis.com/css?family=Bangers);
 
  body {
   padding-top: 60px;
@@ -36,9 +38,7 @@
   color: white;
   float: right;
 }
-a {
-  font-family: 'Montserrat', sans-serif;
-}
+
 ul {
   margin-right: 10px;
   display: inline-block;
@@ -67,7 +67,6 @@ h2 {
     height: 200px;
     margin: 10px;
     border-radius: 30px;
-    padding-top: 80px;
 }
 .box_bot{
 
@@ -100,3 +99,23 @@ h1 {
   margin-right: 15px;
 }
   
+
+.box {
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.box .url {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+a {
+  color: black;
+  font-family: 'Abel', sans-serif;
+  text-align: center;
+  
+
+}

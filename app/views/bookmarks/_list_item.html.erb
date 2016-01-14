@@ -1,0 +1,9 @@
+<h4>
+  <%=link_to "#{bookmark.url}","http://#{bookmark.url}",:target => "_blank"%>
+  <div class="pull-left">
+    <%= link_to "Edit", edit_topic_bookmark_path(topic_id: bookmark.topic.id, id: bookmark.id),class: 'btn btn-primary btn-xs' %>
+  </div>
+  <div class="pull-left pull-left-btn">
+    <%= link_to "Delete",topic_bookmark_path(topic_id: bookmark.topic.id, id: bookmark.id),method: :delete, class: 'btn btn-danger btn-xs' %>
+  </div>
+</h4>

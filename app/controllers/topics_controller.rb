@@ -4,6 +4,7 @@ class TopicsController < ApplicationController
     @user = current_user
     @topics = @user.topics
     
+    
   end
 
   def show

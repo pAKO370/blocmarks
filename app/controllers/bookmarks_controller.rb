@@ -42,7 +42,7 @@ class BookmarksController < ApplicationController
     end
   end
   def destroy
-    
+    @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.find(params[:id])
 
     if @bookmark.destroy

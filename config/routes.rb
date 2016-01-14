@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :topics do
     resources :bookmarks, except:[:index]
+    # delete 'bookmarks/:id' => 'bookmarks#destroy', as: 'delete'
   end
 
   devise_for :users
