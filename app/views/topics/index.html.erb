@@ -1,13 +1,17 @@
-<div class = 'container'>
-  <div class = 'row'>
-    <h1>Topics</h1>
-    <p class="lead">Click on topic to edit Blockmarks</p>
+<% if @user == current_user %>
+  <div class = 'container'>
+    <div class = 'row'>
+      <h1>Topics</h1>
+      <p class="lead">Click on topic to edit Blockmarks</p>
 
-      <%= render partial: 'form', locals: {topic: Topic.new} %>
+        <%= render partial: 'form', locals: {topic: Topic.new} %>
 
-      
-    <h3><%= render @topics %></h3>
-      
+        
+      <h3><%= render @topics %></h3>
+        
+    </div>
   </div>
-  </div>
+<% else %>
+  <%= flash[:alert] = "You are not allowed to view this page!" %>
+<% end %>
 

@@ -19,6 +19,8 @@ class TopicsController < ApplicationController
     @topic.title = params[:topic][:title]
     @topic.user = current_user
 
+    authorize @topic
+
     if @topic.save
       flash[:notice] = "Topic saved"
       redirect_to topics_path
@@ -37,6 +39,8 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     @topic.title = params[:topic][:title]
 
+    authorize @topic
+
     if @topic.save
       flash[:notice] = "Topic saved"
       redirect_to topics_path
@@ -48,6 +52,8 @@ class TopicsController < ApplicationController
 
   def destroy
     @topic = Topic.find(params[:id])
+
+    authorize @topic
 
     if @topic .destroy
       flash[:notice] = "Topic deleted"
