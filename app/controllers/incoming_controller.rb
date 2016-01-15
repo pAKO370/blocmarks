@@ -5,10 +5,10 @@ class IncomingController < ApplicationController
   def create
     puts "INCOMING PARAMS: #{params}"
 
-    @user = User.find(params[:sender])
-    @topic = Topic.find(params[:subject])
+    # @user = (params[:sender])
+    # @topic = params[:subject])
 
-    unless @topic.exists?
+  end
 
 
 end
