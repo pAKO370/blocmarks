@@ -39,6 +39,13 @@ RSpec.describe IncomingController, type: :controller do
             }.to change(Topic, :count).by(1)
           end
         end
+        context "for a non-existing user" do
+          it "does not create a new topic" do
+            expect {
+              post :create, {sender: "new@new.com", subject: "new subject", 'body-plain' => url}
+              }.to change(Topic, :count).by(0)
+          end
+        end
       end
     end
   end
