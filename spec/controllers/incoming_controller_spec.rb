@@ -9,7 +9,11 @@ RSpec.describe IncomingController, type: :controller do
 
       context "from a known user" do
         let(:user) { User.new(email: 'a@a.com', password: '12341234') }
-        before { user.skip_confirmation! }
+        before do
+          user.skip_confirmation!
+          user.save
+        end
+
 
         context "for an existing topic" do
           let(:topic) { Topic.create!(title: topic_title) }
@@ -43,7 +47,12 @@ RSpec.describe IncomingController, type: :controller do
           it "does not create a new topic" do
             expect {
               post :create, {sender: "new@new.com", subject: "new subject", 'body-plain' => url}
-              }.to change(Topic, :count).by(0)
+              }.to_not change(Topic, :count)
+          end
+          it "does not create a bookmark" do
+            expect {
+              post :create, {sender: "new@new.com", subject: "new subject", 'body-plain' => url}
+              }.to_not change(Bookmark, :count)
           end
         end
       end

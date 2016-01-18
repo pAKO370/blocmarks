@@ -5,14 +5,12 @@ class IncomingController < ApplicationController
   def create
     @user = User.find_by(email: params[:sender])
     @topic = Topic.find_by(title: params[:subject].downcase)
-    p "begin"
+    p "#{@user}"
 
     if @user == nil
       @email = params[:sender]
       InviteMailer.invite_user(@email).deliver_now
-      head 200
-    
-
+  
     elsif @topic == nil
       puts "topic"  
       @topic = Topic.new
@@ -24,7 +22,6 @@ class IncomingController < ApplicationController
 
       @bookmark.save
 
-      head 200
     else
       @bookmark = Bookmark.new(url: params['body-plain'])
       @bookmark.topic = @topic
