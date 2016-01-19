@@ -1,8 +1,11 @@
 class TopicsController < ApplicationController
 
   def index
+    if current_user
     @user = current_user
     @topics = @user.topics
+  else
+  end
     
     
   end
