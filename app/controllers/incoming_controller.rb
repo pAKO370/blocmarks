@@ -10,6 +10,7 @@ class IncomingController < ApplicationController
     if @user == nil
       @email = params[:sender]
       InviteMailer.invite_user(@email).deliver_now
+      head 200
   
     elsif @topic == nil
       puts "topic"  
@@ -21,13 +22,14 @@ class IncomingController < ApplicationController
       @bookmark.topic = @topic
 
       @bookmark.save
+      head 200
 
     else
       @bookmark = Bookmark.new(url: params['body-plain'])
       @bookmark.topic = @topic
 
       @bookmark.save
+      head 200
     end
-    head 200
   end
 end
