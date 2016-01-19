@@ -1,9 +1,12 @@
 class LikesController < ApplicationController
 
+  def new
+    like = Like.new
+  end
+
   def create 
-    @user = current_user
     @bookmark = Bookmark.find(params[:id])
-    like = @user.likes.build(bookmark: @bookmark)
+    like = current_user.likes.build(bookmark: @bookmark)
 
     if like.save
       flash[:notice] = "You liked the bookamrk"
