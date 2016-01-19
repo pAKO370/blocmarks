@@ -5,7 +5,7 @@ class IncomingController < ApplicationController
   def create
     @user = User.find_by(email: params[:sender])
     @topic = Topic.find_by(title: params[:subject].downcase)
-    p "#{@user}"
+  
 
     if @user == nil
       @email = params[:sender]
