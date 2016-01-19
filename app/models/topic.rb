@@ -6,6 +6,10 @@ class Topic < ActiveRecord::Base
   validates :title, length: { maximum: 15 }, presence: true
 
   def title=(s)
-    write_attribute(:title, s.to_s.capitalize)
+    self[:title] = s.downcase
+  end
+
+  def title
+    self[:title].to_s.capitalize
   end
 end

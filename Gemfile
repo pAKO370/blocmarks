@@ -32,3 +32,5 @@
  gem 'bootstrap-sass'
  # devise
  gem 'devise'
+ #for Enviroment variables
+ gem 'figaro', '1.0'
