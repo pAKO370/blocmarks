@@ -3,7 +3,6 @@
     <h3>
       <%= link_to topic.title, topic, class: 'h3' %>
       <%= render partial: 'bookmarks/grid', locals: {bookmarks: topic.bookmarks} %>
-      <%= render partial: 'likes/like', locals: {bookmark: @bookmark} %>
     </h3>
   </div>
 </div>
