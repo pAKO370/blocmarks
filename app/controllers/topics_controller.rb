@@ -1,17 +1,15 @@
 class TopicsController < ApplicationController
 
   def index
-    if current_user
+
     @user = current_user
     @topics = @user.topics
-  else
-  end
-    
-    
+
   end
 
   def show
     @topic = Topic.find(params[:id])
+
   end
 
   def new
@@ -22,6 +20,8 @@ class TopicsController < ApplicationController
     @topic.title = params[:topic][:title]
     @topic.user = current_user
 
+    authorize @topic
+
     if @topic.save
       flash[:notice] = "Topic saved"
       redirect_to topics_path
@@ -29,16 +29,17 @@ class TopicsController < ApplicationController
       flash[:alert] = " Topic save failed"
       render :new
     end
-
   end
 
   def edit
     @topic = Topic.find(params[:id])
-    
   end
+  
   def update
     @topic = Topic.find(params[:id])
     @topic.title = params[:topic][:title]
+
+    authorize @topic
 
     if @topic.save
       flash[:notice] = "Topic saved"
@@ -51,6 +52,8 @@ class TopicsController < ApplicationController
 
   def destroy
     @topic = Topic.find(params[:id])
+
+    authorize @topic
 
     if @topic .destroy
       flash[:notice] = "Topic deleted"

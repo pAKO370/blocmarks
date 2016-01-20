@@ -1,13 +1,18 @@
-<div class = 'container'>
-  <div class = 'row'>
-    <h1><%=link_to "#{@topic.title}", topics_path,class: 'h1'%></h1>
 
-      <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger btn-sm pull-left' %>
-      <%= link_to "Edit Topic", edit_topic_path(id: @topic.id), class: 'btn btn-primary btn-sm space' %>
-      <br>
-      <p class="lead">Click on bookmark to view Blockmarks</p>
-      <%= render partial: 'bookmarks/list_item', as: :bookmark, collection: @topic.bookmarks %>
-  </div>
-<br>
-    <%= link_to "New Bookmark", new_topic_bookmark_path(topic_id: @topic.id), class: 'btn btn-success btn-sm' %>
-</div>
+<% if @topic.user == current_user %>
+  <div class = 'container'>
+    <div class = 'row'>
+      <h1><%=link_to "#{@topic.title}", topics_path,class: 'h1'%></h1>
+      
+          <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger btn-sm pull-left' %>
+          <%= link_to "Edit Topic", edit_topic_path(id: @topic.id), class: 'btn btn-primary btn-sm space' %>
+          <br>
+          <p class="lead">Click on bookmark to view Blockmarks</p>
+          <%= render partial: 'bookmarks/list_item', as: :bookmark, collection: @topic.bookmarks %>
+      </div>
+    <br>
+        <%= link_to "New Bookmark", new_topic_bookmark_path(topic_id: @topic.id), class: 'btn btn-success btn-sm' %>
+    </div>
+  <% else %>
+    <%= flash[:alert] = "You are not allowed to view this page!" %>
+<% end %>

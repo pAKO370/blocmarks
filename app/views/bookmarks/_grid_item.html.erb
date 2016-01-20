@@ -1,4 +1,5 @@
-
 <div class='url'> 
   <%=link_to "#{bookmark.url}","http://#{bookmark.url}", class: 'box'%>
+  <%= render partial: 'likes/like', locals: {bookmark: bookmark } %>
 </div>
+

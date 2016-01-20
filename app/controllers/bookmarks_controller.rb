@@ -12,7 +12,10 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new
     @bookmark.url = params[:bookmark][:url]
 
+
     @bookmark.topic = @topic
+
+    authorize @bookmark
   
 
     if @bookmark.save
@@ -33,6 +36,8 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.find(params[:id])
     @bookmark.url = params[:bookmark][:url]
 
+    authorize @bookmark
+
     if @bookmark.save
       flash[:notice] = "Bookmark saved"
       redirect_to @topic
@@ -45,6 +50,8 @@ class BookmarksController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.find(params[:id])
 
+    authorize @bookmark
+
     if @bookmark.destroy
        flash[:notice] = "Bookmark deleted"
       redirect_to @topic
@@ -53,5 +60,4 @@ class BookmarksController < ApplicationController
       redirect_to @topic
     end
   end
-
 end

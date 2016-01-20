@@ -32,5 +32,8 @@
  gem 'bootstrap-sass'
  # devise
  gem 'devise'
+ # user auth-- pundit
+ gem 'pundit'
  #for Enviroment variables
  gem 'figaro', '1.0'
+
