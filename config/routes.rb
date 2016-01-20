@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     end
   end
 
+  #resources :users, only: [:show] do
+    #resources :topics 
+  #end
+
   devise_for :users
   get 'welcome/index'
 
