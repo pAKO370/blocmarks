@@ -60,5 +60,4 @@ class BookmarksController < ApplicationController
       redirect_to @topic
     end
   end
-
 end

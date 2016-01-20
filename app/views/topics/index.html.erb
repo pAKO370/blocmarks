@@ -2,13 +2,9 @@
   <div class = 'container'>
     <div class = 'row'>
       <h1>Topics</h1>
-      <p class="lead">Click on topic to edit Blockmarks</p>
-
-        <%= render partial: 'form', locals: {topic: Topic.new} %>
-
-        
+        <p class="lead">Click on topic to edit Blockmarks</p>
+          <%= render partial: 'form', locals: {topic: Topic.new} %>
       <h3><%= render @topics %></h3>
-        
     </div>
   </div>
 <% else %>

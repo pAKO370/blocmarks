@@ -1,7 +1,7 @@
 <div class="media">
   <div class="media-body">
     <h3>
-      <%= link_to topic.title, topic %>
+      <%= link_to topic.title, topic, class: 'h3' %>
       <%= render partial: 'bookmarks/grid', locals: {bookmarks: topic.bookmarks} %>
     </h3>
   </div>

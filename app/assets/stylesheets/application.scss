@@ -61,8 +61,12 @@ h2 {
     margin-top: 20px;
     color: #A9A9A9;
   }
-  
 h1 {
+  font-family: 'Londrina Shadow';
+  color: black;
+  font-size: 40px;
+  }
+  .h1 {
   font-family: 'Londrina Shadow';
   color: black;
   font-size: 40px;
@@ -81,7 +85,7 @@ h1 {
   margin-right: 15px;
 }
 .bookmark-grid {
-  
+
 }
 .box {
   background-color: lightgrey;
@@ -125,4 +129,16 @@ h1 {
 a {
   color: black;
   font-family: 'Abel', sans-serif;
+}
+.likes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.margin-left {
+  margin-left: 7px;
+}
+.margin-right {
+  margin-right: 7px;
 }

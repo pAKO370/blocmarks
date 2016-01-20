@@ -1,14 +1,15 @@
 class TopicsController < ApplicationController
 
   def index
+
     @user = current_user
     @topics = @user.topics
-    
-    
+
   end
 
   def show
     @topic = Topic.find(params[:id])
+
   end
 
   def new
@@ -28,13 +29,12 @@ class TopicsController < ApplicationController
       flash[:alert] = " Topic save failed"
       render :new
     end
-
   end
 
   def edit
     @topic = Topic.find(params[:id])
-    
   end
+  
   def update
     @topic = Topic.find(params[:id])
     @topic.title = params[:topic][:title]
