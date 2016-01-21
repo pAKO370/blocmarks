@@ -1,5 +1,4 @@
-<% if @user == current_user %>
-<% else %>
+
   <% if policy(Like.new).create? %>
     <div class='likes'>
       <% if like = current_user.liked(bookmark) %>
@@ -12,5 +11,5 @@
         <% end %>
       <% end %>
     </div>
-  <% end %>
 <% end %>
+
