@@ -16,5 +16,8 @@ class User < ActiveRecord::Base
   # def liked_bookmarks
   #   self.likes.map { |like| like.bookmark }
   # end
+  #def users_bookmarks(books)
+   # self.bookmarks.map { |bookmarks| bookmarks == books}
+  #end
 
 end

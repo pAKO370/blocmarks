@@ -1,5 +1,6 @@
 require 'rails_helper'
 include Pundit
+include Devise::TestHelpers
 
 describe BookmarksController, type: :controller do
   let(:user) {User.new(email: 'user1@user.com',password: '12345678')}
@@ -28,7 +29,7 @@ describe BookmarksController, type: :controller do
         end
         it "creates an item with the right attributes" do
           post :create, user_id: user.id, topic_id: topic.id, bookmark: {url: 'www.test.com'}
-          expect(Bookmark.url).to eq("www.test.com")
+          expect(Bookmark.last.url).to eq("www.test.com")
         end
       end
       context "trying to create a bookmark for another user" do

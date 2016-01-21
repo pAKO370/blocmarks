@@ -1,5 +1,10 @@
 <h1>Click on users name to view their Blocmarks</h1>
+
 <br>
+
 <% @users.each do |user| %>
-<%= link_to "#{user.email}", user_topics_path(user_id: user.id),method: :get, class: "h3"  %>
+  <% if user == current_user %>
+  <% else %>
+    <%= link_to "#{user.email}", user_topics_path(user_id: user.id),method: :get, class: "h3"  %>
+  <% end %>
 <% end %>
