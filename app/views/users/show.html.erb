@@ -1,0 +1,25 @@
+<% if current_user %>
+  <div class = 'container'>
+    <div class = 'row'>
+      <h1><%="#{@user.email}'s Profile" %></h1>
+      <div class='btn-group inline pull-left'>
+        <%= link_to 'Edit Profile', edit_user_registration_path, :class => 'btn btn-primary'%>
+        <%= link_to "Other Users", users_path, method: :get, class: 'btn btn-success' %>
+      </div>
+      <br>
+          <p class="lead">Click on topic to edit Blockmarks</p>
+      
+      <h3><%= render @topics %></h3>
+      <br>
+      <h1><%="#{@user.email}'s likes" %></h1>
+        <%= render partial: 'bookmarks/grid', locals: { bookmarks: @user.liked_bookmarks } %>
+      
+    </div>
+  </div>
+<% else %>
+  <%= flash[:alert] = "You are not allowed to view this page!" %>
+<% end %>
+
+
+
+

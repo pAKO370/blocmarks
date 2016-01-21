@@ -18,12 +18,14 @@
           <h2 class='pull-left'>Blocmarks</h2>
           <ul class="nav navbar-nav">
           <li><%=link_to "Home", root_path, class: 'adjust-link' %></li>
-          <li><%= link_to "Blocmarks", topics_path, class: 'adjust-link' %></li>
+          <% if current_user %>
+          <li><%= link_to "Blocmarks", user_topics_path(user_id: current_user.id), class: 'adjust-link' %></li>
+          <% end %>
         </div>
 
         <div class="pull-right user-info">
           <% if user_signed_in? %>
-                        <%= link_to 'User Profile',edit_user_registration_path,method: :get, :class => 'btn btn-success navbar-btn btn-sm'%> || <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'btn btn-success navbar-btn btn-sm' %>
+                        <%= link_to 'User Profile',users_show_path,method: :get, :class => 'btn btn-success navbar-btn btn-sm'%> || <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'btn btn-success navbar-btn btn-sm' %>
           <% else %>
             <%= link_to "Sign Up", new_user_registration_path, :class => 'btn btn-success navbar-btn btn-circle' %>  ||  
               <%= link_to "Sign In", new_user_session_path, :class => 'btn btn-success navbar-btn btn-circle' %>

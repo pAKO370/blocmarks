@@ -5,11 +5,16 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable 
 
   has_many :topics, dependent: :destroy
-  has_many :bookmarks, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :bookmarks, through: :topics
+  has_many :liked_bookmarks, through: :likes, source: :bookmark
 
   def liked(bookmark)
     likes.where(bookmark_id: bookmark.id).first
   end
+
+  # def liked_bookmarks
+  #   self.likes.map { |like| like.bookmark }
+  # end
 
 end

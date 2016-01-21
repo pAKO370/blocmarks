@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
 
   def index
 
-    @user = current_user
+    @user = User.find(params[:user_id])
     @topics = @user.topics
 
   end
@@ -24,7 +24,7 @@ class TopicsController < ApplicationController
 
     if @topic.save
       flash[:notice] = "Topic saved"
-      redirect_to topics_path
+      redirect_to user_topics_path(current_user.id)
     else
       flash[:alert] = " Topic save failed"
       render :new
@@ -43,7 +43,7 @@ class TopicsController < ApplicationController
 
     if @topic.save
       flash[:notice] = "Topic saved"
-      redirect_to topics_path
+      redirect_to user_topic_path(user_id: current_user.id,id: @topic.id)
     else
       flash[:alert] = " Topic save failed"
       redirect_to :new
@@ -57,7 +57,7 @@ class TopicsController < ApplicationController
 
     if @topic .destroy
       flash[:notice] = "Topic deleted"
-      redirect_to topics_path
+      redirect_to user_topics_path(user_id: current_user.id)
     else
       flash[:alert] ="Topic could not be deleted"
       redirect_to topics-path

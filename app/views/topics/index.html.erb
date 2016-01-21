@@ -1,9 +1,11 @@
-<% if @user == current_user %>
+<% if current_user %>
   <div class = 'container'>
     <div class = 'row'>
       <h1>Topics</h1>
         <p class="lead">Click on topic to edit Blockmarks</p>
+        <% if @user == current_user %>
           <%= render partial: 'form', locals: {topic: Topic.new} %>
+        <% end %>
       <h3><%= render @topics %></h3>
     </div>
   </div>
