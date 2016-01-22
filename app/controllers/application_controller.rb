@@ -4,5 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   include Pundit
+
+  rescue_from Pundit::NotAuthorizedError do
+    flash[:error] = "You're not authorized to do that"
+    redirect_to root_path
+  end
   
 end

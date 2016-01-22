@@ -4,6 +4,7 @@ class Topic < ActiveRecord::Base
   has_many :bookmarks,dependent: :destroy
 
   validates :title, length: { maximum: 15 }, presence: true
+  validates :user, presence: true
 
   def title=(s)
     self[:title] = s.downcase

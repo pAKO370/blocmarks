@@ -1,5 +1,5 @@
 
-<% if @topic.user == current_user %>
+
   <div class = 'container'>
     <div class = 'row'>
       <h1><%=link_to "#{@topic.title}", user_topics_path(user_id: current_user.id),class: 'h1'%></h1>
@@ -13,6 +13,4 @@
     <br>
         <%= link_to "New Bookmark", new_topic_bookmark_path(topic_id: @topic.id), class: 'btn btn-success btn-sm' %>
     </div>
-  <% else %>
-    <%= flash[:alert] = "You are not allowed to view this page!" %>
-<% end %>
+ 

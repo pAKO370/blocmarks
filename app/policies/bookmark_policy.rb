@@ -1,20 +1,22 @@
-class BookmarkPolicy < ApplicationPolicy
+class BookmarkPolicy 
 
-  def initialize(user, bookmark)
-    @user = user
+  attr_reader :current_user, :bookmark
+
+  def initialize(current_user, bookmark)
+    @current_user = current_user
     @bookmark = bookmark
   end
 
   def index?
-    false
+    current_user
   end
 
   def show?
-    scope.where(:id => record.id).exists?
+    bookmark.user == current_user
   end
 
   def create?
-    @bookmark.user == current_user
+    bookmark.user == current_user
   end
 
   def new?

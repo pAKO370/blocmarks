@@ -7,6 +7,7 @@ class BookmarksController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.new
   end
+  
   def create
     @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.new
@@ -16,7 +17,6 @@ class BookmarksController < ApplicationController
     @bookmark.topic = @topic
 
     authorize @bookmark
-  
 
     if @bookmark.save
       flash[:notice] = "Bookmark was created"
@@ -31,6 +31,7 @@ class BookmarksController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.find(params[:id])
   end
+
   def update
     @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.find(params[:id])
@@ -46,6 +47,7 @@ class BookmarksController < ApplicationController
       render :edit
     end
   end
+
   def destroy
     @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.find(params[:id])
