@@ -19,6 +19,7 @@ class LikesController < ApplicationController
       redirect_to user_topics_path(current_user.id)
     end
   end
+  
   def destroy
     @bookmark = Bookmark.find(params[:bookmark_id])
     like = current_user.likes.find(params[:id])

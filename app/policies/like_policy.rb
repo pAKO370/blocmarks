@@ -1,9 +1,9 @@
-class LikePolicy < ApplicationPolicy
+class LikePolicy 
 
-attr_reader :user, :like
+attr_reader :current_user, :like
 
-  def initialize(user, record)
-    @user = user
+  def initialize(current_user, record)
+    @current_user = current_user
     @like = like
   end
 
@@ -16,7 +16,7 @@ attr_reader :user, :like
   end
 
   def create?
-    user.present?
+    current_user
   end
 
   def new?
@@ -32,7 +32,7 @@ attr_reader :user, :like
   end
 
   def destroy?
-    user.present?
+    current_user
   end
 end
   

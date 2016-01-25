@@ -9,10 +9,10 @@ module ApplicationHelper
     end
   end
 
-  def user_bookmark(user, bookmark)
+  #def user_bookmark(user, bookmark)
     # user.bookmarks.map { |book| book == bookmark}.include?(true)
     # user.bookmarks.any? { |book| book == bookmark}
-    bookmark.user == user
-  end
+   # bookmark.user == user
+  #end
 
 end
